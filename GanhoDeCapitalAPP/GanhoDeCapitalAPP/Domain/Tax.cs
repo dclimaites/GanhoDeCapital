@@ -9,15 +9,20 @@ namespace GanhoDeCapitalAPP.Domain
 {
     public class Tax : IOperation
     {
-        Transaction Transaction { get; }
+        IList<Transaction> Transactions { get; }
 
-        public Tax(Transaction transaction)
+        public Tax(IEnumerable<Transaction> transaction)
         {
-            Transaction = transaction;
+            Transactions = transaction.ToList();
         }
         public decimal CalculateTax()
         {
             throw new NotImplementedException();
+        }
+
+        public decimal CalculatePM()
+        {
+            return this.Transactions.Sum(item => item.Quantity * item.UnitCost) / this.Transactions.Sum(item => item.Quantity);
         }
     }
 }

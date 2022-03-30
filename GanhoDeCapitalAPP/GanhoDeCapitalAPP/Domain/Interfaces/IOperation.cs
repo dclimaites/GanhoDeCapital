@@ -9,5 +9,6 @@ namespace GanhoDeCapitalAPP.Domain.Interfaces
     public interface IOperation
     {
         decimal CalculateTax();
+        decimal CalculatePM();
     }
 }
