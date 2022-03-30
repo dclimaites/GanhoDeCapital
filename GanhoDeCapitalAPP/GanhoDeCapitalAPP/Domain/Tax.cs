@@ -22,7 +22,8 @@ namespace GanhoDeCapitalAPP.Domain
 
         public decimal CalculatePM()
         {
-            return this.Transactions.Sum(item => item.Quantity * item.UnitCost) / this.Transactions.Sum(item => item.Quantity);
+            var purchases = this.Transactions.Where(item => item.Operation == "buy");
+            return purchases.Sum(item => item.Quantity * item.UnitCost) / purchases.Sum(item => item.Quantity);
         }
     }
 }
