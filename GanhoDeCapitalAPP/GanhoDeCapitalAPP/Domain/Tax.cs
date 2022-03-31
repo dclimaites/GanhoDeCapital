@@ -20,7 +20,7 @@ namespace GanhoDeCapitalAPP.Domain
             throw new NotImplementedException();
         }
 
-        public decimal CalculatePM()
+        public decimal CalculateAveragePrice()
         {
             var purchases = this.Transactions.Where(item => item.Operation == "buy");
             return Math.Round(purchases.Sum(item => item.Quantity * item.UnitCost) / purchases.Sum(item => item.Quantity), 2);

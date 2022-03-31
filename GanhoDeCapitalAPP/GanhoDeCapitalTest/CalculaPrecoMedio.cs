@@ -44,7 +44,7 @@ namespace GanhoDeCapitalTest
             //arrange
             var operacao = new Tax(transacoes);
             //act
-            var precoMedioCalculado = operacao.CalculatePM();
+            var precoMedioCalculado = operacao.CalculateAveragePrice();
             //assert
             Assert.Equal(valorEsperado, precoMedioCalculado);
             
