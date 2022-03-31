@@ -19,7 +19,7 @@ namespace GanhoDeCapitalAPP.Domain
         {
             if (HasTax())
             {
-                return TaxRate * Transaction.Total();
+                return TaxRate * Transaction.Balance();
             }
 
             return 0m;
@@ -27,7 +27,7 @@ namespace GanhoDeCapitalAPP.Domain
 
         public bool HasTax()
         {
-            return Transaction.Operation == Utils.SELL && Transaction.Total() <= Utils.RATE_LIMIT && Transaction.HasProfit();
+            return Transaction.Operation == Utils.SELL && Utils.RATE_LIMIT <= Transaction.Total() && Transaction.HasProfit();
         }
     }
 }

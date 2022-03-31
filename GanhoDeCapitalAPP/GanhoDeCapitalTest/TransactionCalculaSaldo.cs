@@ -10,11 +10,6 @@ namespace GanhoDeCapitalTest
         {
             yield return new object[] {
                 new Transaction("sell", 20m, 5000, 10m)
-                //, new List<Transaction>()
-                //{
-                //    new Transaction("buy", 10m, 10000, 10m),
-                //    new Transaction("sell", 20m, 5000, 10m)
-                //}
                 ,50000m
 
             };
@@ -30,20 +25,8 @@ namespace GanhoDeCapitalTest
 
         [Theory]
         [MemberData(nameof(TransacoesComLucro))]
+        [MemberData(nameof(TransacoesSemLucro))]
         public void CalculaSaldoDadoTransacaoComLucro(Transaction transacaoSobAnalise, decimal valorEsperado)
-        {
-            //arrange
-            //var trade = new Trade(transacoes);
-            //act
-            var saldo = transacaoSobAnalise.Balance();
-            //assert
-            Assert.Equal(valorEsperado, saldo);
-
-        }
-
-        [Theory]
-        [MemberData(nameof(TransacoesComLucro))]
-        public void CalculaSaldoDadoTransacaoSemLucro(Transaction transacaoSobAnalise, decimal valorEsperado)
         {
             //arrange
             //var trade = new Trade(transacoes);
