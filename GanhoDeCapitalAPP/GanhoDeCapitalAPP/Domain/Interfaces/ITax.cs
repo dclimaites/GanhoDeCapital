@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace GanhoDeCapitalAPP.Domain.Interfaces
 {
-    public interface IOperation
+    public interface ITax
     {
         decimal CalculateTax();
+        bool HasTax();
     }
 }
