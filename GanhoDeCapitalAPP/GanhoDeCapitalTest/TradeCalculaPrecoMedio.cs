@@ -1,12 +1,10 @@
 using GanhoDeCapitalAPP.Domain;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Xunit;
 
 namespace GanhoDeCapitalTest
 {
-    public class CalculaPrecoMedio
+    public class TradeCalculaPrecoMedio
     {
         public static IEnumerable<object[]> TransacoesComVenda()
         {
@@ -42,7 +40,7 @@ namespace GanhoDeCapitalTest
         public void CalculaPrecoMedioDadoTransacoesComCompra(IEnumerable<Transaction> transacoes, decimal valorEsperado)
         {
             //arrange
-            var operacao = new Tax(transacoes);
+            var operacao = new Trade(transacoes);
             //act
             var precoMedioCalculado = operacao.CalculateAveragePrice();
             //assert

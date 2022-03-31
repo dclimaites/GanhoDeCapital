@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace GanhoDeCapitalAPP.Domain.Interfaces
 {
-    public interface IOperation
+    //Ou seria Pregão?
+    public interface ITrade
     {
-        decimal CalculateTax();
+        decimal CalculateAveragePrice();
     }
 }
