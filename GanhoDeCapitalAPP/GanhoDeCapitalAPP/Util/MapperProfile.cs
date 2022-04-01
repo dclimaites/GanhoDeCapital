@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GanhoDeCapitalAPP.Domain.Interfaces
+namespace GanhoDeCapitalAPP.Util
 {
-    public interface ITransaction
+    public class MapperProfile
     {
-        decimal Total();
     }
 }

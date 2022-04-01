@@ -4,12 +4,11 @@ namespace GanhoDeCapitalAPP.Domain
 {
     public class Transaction : ITransaction
     {
-        public Transaction(string operation, decimal unitCost, int quantity, decimal averagePrice)
+        public Transaction(string operation, decimal unitCost, int quantity)
         {
             Operation = operation;
             UnitCost = unitCost;
             Quantity = quantity;
-            AveragePrice = averagePrice;
         }
 
         /// <summary>
@@ -20,10 +19,10 @@ namespace GanhoDeCapitalAPP.Domain
         /// Custo unitário da transação
         /// </summary>
         public decimal UnitCost { get; }
+        /// <summary>
+        /// Quantidade da transação
+        /// </summary>
         public int Quantity { get; }
-        public decimal AveragePrice { get; }
         public decimal Total() => UnitCost * Quantity;
-        public decimal Balance() => Total() - AveragePrice * Quantity;
-        public bool HasProfit() => UnitCost > AveragePrice;
     }
 }

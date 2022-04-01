@@ -9,6 +9,6 @@ namespace GanhoDeCapitalAPP.Domain.Interfaces
     //Ou seria Pregão?
     public interface ITrade
     {
-        decimal CalculateAveragePrice();
+        decimal CalculateAveragePrice(Transaction transaction);
     }
 }

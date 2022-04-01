@@ -6,14 +6,12 @@ namespace GanhoDeCapitalAPP.Domain
     public class Tax : ITax
     {
         public Transaction Transaction { get; }
-        public decimal AveragePrice { get; }
-        public decimal Losses { get; }
+        public Trade Trade { get; }
         public decimal TaxRate { get; }
-        public Tax(Transaction transaction, decimal averagePrice, decimal losses)
+        public Tax(Transaction transaction, Trade trade)
         {
             Transaction = transaction;
-            AveragePrice = averagePrice;
-            Losses = losses;
+            Trade = trade;
             TaxRate = 0.2m;
         }
 
@@ -21,8 +19,8 @@ namespace GanhoDeCapitalAPP.Domain
         {
             if (HasTax())
             {
-                var currentBalance = Transaction.Balance();
-                var balanceWithoutLosses = currentBalance - Losses;
+                var currentBalance = Trade.Balance(Transaction);
+                var balanceWithoutLosses = currentBalance - Trade.Loss(Transaction);
                 if(balanceWithoutLosses > 0)
                     return balanceWithoutLosses * TaxRate;
             }
@@ -32,7 +30,7 @@ namespace GanhoDeCapitalAPP.Domain
 
         public bool HasTax()
         {
-            return Transaction.Operation == Utils.SELL && Utils.RATE_LIMIT <= Transaction.Total() && Transaction.HasProfit();
+            return Transaction.Operation == Utils.SELL && Utils.RATE_LIMIT <= Transaction.Total() && Trade.HasProfit(Transaction);
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GanhoDeCapitalAPP.Domain.Interfaces
+namespace GanhoDeCapitalAPP.DTO
 {
-    public interface ITransaction
+    public class TaxDTO
     {
-        decimal Total();
+        public decimal Tax { get; set; }
     }
 }
