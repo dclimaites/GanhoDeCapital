@@ -18,6 +18,24 @@ namespace GanhoDeCapitalTest
             , new Transaction("sell", 30m, 4350) //7
             , new Transaction("sell", 30m, 650) //8
         };
+
+        public static List<Transaction> ListaCaso2 = new List<Transaction>
+        {
+            new Transaction("buy", 10m,10000),
+            new Transaction("sell", 20m, 5000),
+            new Transaction("sell", 5m,5000)
+        };
+
+        public static IEnumerable<object[]> DadosCasoDeTeste2()
+        {
+            yield return new object[]
+            {
+                ListaCaso2.ElementAt(1),
+                new Trade(ListaCaso2),
+                10000
+            };
+        }
+
         public static IEnumerable<object[]> TransacaoComLucroEImpostoASerPago()
         {
             yield return new object[] {
@@ -39,7 +57,8 @@ namespace GanhoDeCapitalTest
 
         [Theory]
         //[MemberData(nameof(TransacaoComLucroEImpostoASerPago))]
-        [MemberData(nameof(TransacaoComLucroEPrejuizoDedutivel))]
+        //[MemberData(nameof(TransacaoComLucroEPrejuizoDedutivel))]
+        [MemberData(nameof(DadosCasoDeTeste2))]
         public void CalculaImpostoDadoTransacaoComLucro(Transaction transacaoSobAnalise, Trade trade, decimal valorEsperado)
         {
             //arrange

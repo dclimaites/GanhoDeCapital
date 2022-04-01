@@ -53,6 +53,10 @@ namespace GanhoDeCapitalAPP.Domain
                 node = node.Previous;
             }
             while (node != null);
+
+            if (loss > 0)
+                return 0;
+
             return loss;
         }
     }
