@@ -14,13 +14,22 @@
     sudo apt-get update; \
     sudo apt-get install -y apt-transport-https && \
     sudo apt-get update && \
-    sudo apt-get install -y dotnet-sdk-6.0
+    sudo apt-get install -y dotnet-sdk-5.0
     ```
   - Para executar o build do projeto manualmente: 
     ``` bash
-    dotnet build "GanhoDeCapitalAPP.csproj" -c Release -o /app/build
+    dotnet build "./GanhoDeCapitalAPP/GanhoDeCapitalAPP.csproj" -c Release -o /app/build
     ```
-  - Para executar o projeto manualmente: 
+  - Para executar o release criado: 
   ``` bash
-  dotnet build "GanhoDeCapitalAPP.csproj" -c Release -o /app/build
+   dotnet \app\build\GanhoDeCapitalAPP.dll
   ```
+- Para executar o projeto dotnet: 
+  ``` bash
+   dotnet run --project .\GanhoDeCapitalAPP\GanhoDeCapitalAPP.csproj
+  ```
+  - Para executar o projeto de teste : 
+  ``` bash
+   dotnet test .\GanhoDeCapitalTest\GanhoDeCapitalTest.csproj
+  ```
+  
